@@ -63,7 +63,7 @@ public class CalculatorScreen extends JFrame {
 		try {
 			number = Double.parseDouble(textField.getText().trim());	
 		} catch (Exception e) {
-			JOptionPane.showMessageDialog(null, "La entrada debe ser un número", "Error", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(null, "La entrada debe ser un nï¿½mero", "Error", JOptionPane.ERROR_MESSAGE);
 		} finally {
 
 		}
@@ -85,7 +85,7 @@ public class CalculatorScreen extends JFrame {
 			if (current != 0) {
 				textField.setText(Double.toString(oldNumber / current));
 			} else {
-				JOptionPane.showMessageDialog(null, "La división entre 0 no está definida", "Error", JOptionPane.ERROR_MESSAGE);
+				JOptionPane.showMessageDialog(null, "La divisiï¿½n entre 0 no estï¿½ definida", "Error", JOptionPane.ERROR_MESSAGE);
 			}
 			break;
 		case Prod:
