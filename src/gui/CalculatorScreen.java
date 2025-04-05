@@ -22,10 +22,11 @@ import javax.swing.SwingConstants;
 
 import java.awt.Window.Type;
 import javax.swing.JLabel;
+import java.awt.Toolkit;
 
 public class CalculatorScreen extends JFrame {
 	private JPanel contentPane;
-	private JTextField textField;
+	private JLabel textField;
 	private Operation operation = Operation.Sum;
 	private boolean newNumber = false;
 	private double oldNumber = 0;
@@ -81,9 +82,10 @@ public class CalculatorScreen extends JFrame {
 			textField.setText(Double.toString(oldNumber - current));
 			break;
 		case Div:
-			// Verficar que el numero no sea 0
 			if (current != 0) {
 				textField.setText(Double.toString(oldNumber / current));
+			} else {
+				JOptionPane.showMessageDialog(null, "La división entre 0 no está definida", "Error", JOptionPane.ERROR_MESSAGE);
 			}
 			break;
 		case Prod:
@@ -123,10 +125,11 @@ public class CalculatorScreen extends JFrame {
 	 * Create the frame.
 	 */
 	public CalculatorScreen() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\user\\Downloads\\icons8_calculator_50_H8X_icon.ico"));
 		setResizable(false);
 		setBackground(Color.GRAY);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 267, 489);
+		setBounds(100, 100, 267, 430);
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.DARK_GRAY);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -142,7 +145,7 @@ public class CalculatorScreen extends JFrame {
 		});
 		btnNewButton.setFont(new Font("Lucida Sans Unicode", Font.BOLD, 18));
 		btnNewButton.setBackground(Color.DARK_GRAY);
-		btnNewButton.setBounds(12, 202, 50, 50);
+		btnNewButton.setBounds(12, 147, 50, 50);
 		contentPane.add(btnNewButton);
 		
 		JButton button = new JButton("8");
@@ -154,7 +157,7 @@ public class CalculatorScreen extends JFrame {
 		});
 		button.setFont(new Font("Lucida Sans Unicode", Font.BOLD, 18));
 		button.setBackground(Color.DARK_GRAY);
-		button.setBounds(74, 202, 50, 50);
+		button.setBounds(74, 147, 50, 50);
 		contentPane.add(button);
 		
 		JButton button_1 = new JButton("9");
@@ -166,7 +169,7 @@ public class CalculatorScreen extends JFrame {
 		});
 		button_1.setFont(new Font("Lucida Sans Unicode", Font.BOLD, 18));
 		button_1.setBackground(Color.DARK_GRAY);
-		button_1.setBounds(136, 202, 50, 50);
+		button_1.setBounds(136, 147, 50, 50);
 		contentPane.add(button_1);
 		
 		JButton button_2 = new JButton("4");
@@ -178,7 +181,7 @@ public class CalculatorScreen extends JFrame {
 		});
 		button_2.setFont(new Font("Lucida Sans Unicode", Font.BOLD, 18));
 		button_2.setBackground(Color.DARK_GRAY);
-		button_2.setBounds(12, 265, 50, 50);
+		button_2.setBounds(12, 210, 50, 50);
 		contentPane.add(button_2);
 		
 		JButton button_3 = new JButton("5");
@@ -190,7 +193,7 @@ public class CalculatorScreen extends JFrame {
 		});
 		button_3.setFont(new Font("Lucida Sans Unicode", Font.BOLD, 18));
 		button_3.setBackground(Color.DARK_GRAY);
-		button_3.setBounds(74, 265, 50, 50);
+		button_3.setBounds(74, 210, 50, 50);
 		contentPane.add(button_3);
 		
 		JButton button_4 = new JButton("6");
@@ -202,7 +205,7 @@ public class CalculatorScreen extends JFrame {
 		});
 		button_4.setFont(new Font("Lucida Sans Unicode", Font.BOLD, 18));
 		button_4.setBackground(Color.DARK_GRAY);
-		button_4.setBounds(136, 265, 50, 50);
+		button_4.setBounds(136, 210, 50, 50);
 		contentPane.add(button_4);
 		
 		JButton button_5 = new JButton("1");
@@ -214,7 +217,7 @@ public class CalculatorScreen extends JFrame {
 		});
 		button_5.setFont(new Font("Lucida Sans Unicode", Font.BOLD, 18));
 		button_5.setBackground(Color.DARK_GRAY);
-		button_5.setBounds(12, 328, 50, 50);
+		button_5.setBounds(12, 273, 50, 50);
 		contentPane.add(button_5);
 		
 		JButton button_6 = new JButton("2");
@@ -226,7 +229,7 @@ public class CalculatorScreen extends JFrame {
 		});
 		button_6.setFont(new Font("Lucida Sans Unicode", Font.BOLD, 18));
 		button_6.setBackground(Color.DARK_GRAY);
-		button_6.setBounds(74, 328, 50, 50);
+		button_6.setBounds(74, 273, 50, 50);
 		contentPane.add(button_6);
 		
 		JButton button_7 = new JButton("3");
@@ -238,7 +241,7 @@ public class CalculatorScreen extends JFrame {
 		});
 		button_7.setFont(new Font("Lucida Sans Unicode", Font.BOLD, 18));
 		button_7.setBackground(Color.DARK_GRAY);
-		button_7.setBounds(136, 328, 50, 50);
+		button_7.setBounds(136, 273, 50, 50);
 		contentPane.add(button_7);
 		
 		JButton button_8 = new JButton("+");
@@ -249,7 +252,7 @@ public class CalculatorScreen extends JFrame {
 		});
 		button_8.setFont(new Font("Lucida Sans Unicode", Font.BOLD, 18));
 		button_8.setBackground(new Color(176, 196, 222));
-		button_8.setBounds(198, 265, 50, 50);
+		button_8.setBounds(198, 210, 50, 50);
 		contentPane.add(button_8);
 		
 		JButton button_9 = new JButton("-");
@@ -260,7 +263,7 @@ public class CalculatorScreen extends JFrame {
 		});
 		button_9.setFont(new Font("Lucida Sans Unicode", Font.BOLD, 18));
 		button_9.setBackground(new Color(176, 196, 222));
-		button_9.setBounds(198, 328, 50, 50);
+		button_9.setBounds(198, 273, 50, 50);
 		contentPane.add(button_9);
 		
 		JButton btnX = new JButton("\u00D7");
@@ -271,7 +274,7 @@ public class CalculatorScreen extends JFrame {
 		});
 		btnX.setFont(new Font("Lucida Sans Unicode", Font.BOLD, 18));
 		btnX.setBackground(new Color(176, 196, 222));
-		btnX.setBounds(198, 202, 50, 50);
+		btnX.setBounds(198, 147, 50, 50);
 		contentPane.add(btnX);
 		
 		JButton button_11 = new JButton("0");
@@ -283,7 +286,7 @@ public class CalculatorScreen extends JFrame {
 		});
 		button_11.setFont(new Font("Lucida Sans Unicode", Font.BOLD, 18));
 		button_11.setBackground(Color.DARK_GRAY);
-		button_11.setBounds(74, 391, 50, 50);
+		button_11.setBounds(74, 336, 50, 50);
 		contentPane.add(button_11);
 		
 		JButton button_12 = new JButton("\u00F7");
@@ -294,7 +297,7 @@ public class CalculatorScreen extends JFrame {
 		});
 		button_12.setFont(new Font("Lucida Sans Unicode", Font.BOLD, 18));
 		button_12.setBackground(new Color(176, 196, 222));
-		button_12.setBounds(198, 138, 50, 50);
+		button_12.setBounds(198, 83, 50, 50);
 		contentPane.add(button_12);
 		
 		JButton button_10 = new JButton("=");
@@ -302,23 +305,23 @@ public class CalculatorScreen extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 				doCalculation();
 				
+				lblNewLabel.setText(Double.toString(getCurrentNumber()) + "+");
 				operation = Operation.Sum;
-				lblNewLabel.setText("");
-				oldNumber = 0;
+				newNumber = true;
 			}
 		});
 		button_10.setFont(new Font("Lucida Sans Unicode", Font.BOLD, 18));
 		button_10.setBackground(new Color(176, 196, 222));
-		button_10.setBounds(198, 391, 50, 50);
+		button_10.setBounds(198, 336, 50, 50);
 		contentPane.add(button_10);
 		
-		textField = new JTextField();
+		textField = new JLabel();
 		textField.setHorizontalAlignment(SwingConstants.RIGHT);
 		textField.setFont(new Font("Lucida Sans Unicode", Font.BOLD, 27));
 		textField.setForeground(Color.WHITE);
 		textField.setText("0");
 		textField.setBackground(Color.DARK_GRAY);
-		textField.setBounds(12, 13, 236, 86);
+		textField.setBounds(12, 13, 236, 57);
 		contentPane.add(textField);
 		
 		JButton btnC = new JButton("C");
@@ -330,7 +333,7 @@ public class CalculatorScreen extends JFrame {
 		btnC.setForeground(Color.WHITE);
 		btnC.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 18));
 		btnC.setBackground(new Color(119, 136, 153));
-		btnC.setBounds(136, 138, 50, 50);
+		btnC.setBounds(136, 83, 50, 50);
 		contentPane.add(btnC);
 		
 		JButton button_13 = new JButton(",");
@@ -342,7 +345,7 @@ public class CalculatorScreen extends JFrame {
 		button_13.setForeground(Color.WHITE);
 		button_13.setFont(new Font("Lucida Sans Unicode", Font.BOLD, 18));
 		button_13.setBackground(new Color(112, 128, 144));
-		button_13.setBounds(136, 391, 50, 50);
+		button_13.setBounds(136, 336, 50, 50);
 		contentPane.add(button_13);
 		contentPane.add(getLblNewLabel());
 		
@@ -350,7 +353,7 @@ public class CalculatorScreen extends JFrame {
 		btnCe.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				oldNumber = 0;
-				textField.setText("");
+				textField.setText("0");
 				lblNewLabel.setText("");
 				operation = Operation.Sum;
 			}
@@ -358,7 +361,7 @@ public class CalculatorScreen extends JFrame {
 		btnCe.setForeground(Color.WHITE);
 		btnCe.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 13));
 		btnCe.setBackground(new Color(119, 136, 153));
-		btnCe.setBounds(74, 138, 50, 50);
+		btnCe.setBounds(74, 83, 50, 50);
 		contentPane.add(btnCe);
 	}
 	private JLabel getLblNewLabel() {
@@ -368,7 +371,7 @@ public class CalculatorScreen extends JFrame {
 			lblNewLabel.setForeground(new Color(204, 204, 204));
 			lblNewLabel.setFont(new Font("Lucida Sans Unicode", Font.BOLD, 13));
 			lblNewLabel.setBackground(new Color(51, 51, 51));
-			lblNewLabel.setBounds(12, 112, 236, 16);
+			lblNewLabel.setBounds(12, 54, 236, 16);
 		}
 		return lblNewLabel;
 	}
