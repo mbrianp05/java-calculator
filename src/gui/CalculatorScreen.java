@@ -48,7 +48,7 @@ public class CalculatorScreen extends JFrame {
 		});
 	}
 	
-	private void addDigit(String digit) {
+	private void displayDigit(String digit) {
 		if (textField.getText().equals("0") || newNumber) {
 			textField.setText(digit);
 			newNumber = false;
@@ -63,7 +63,7 @@ public class CalculatorScreen extends JFrame {
 		try {
 			number = Double.parseDouble(textField.getText().trim());	
 		} catch (Exception e) {
-			JOptionPane.showMessageDialog(null, "La entrada debe ser un nï¿½mero", "Error", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(null, "La entrada debe ser un número", "Error", JOptionPane.ERROR_MESSAGE);
 		} finally {
 
 		}
@@ -85,7 +85,7 @@ public class CalculatorScreen extends JFrame {
 			if (current != 0) {
 				textField.setText(Double.toString(oldNumber / current));
 			} else {
-				JOptionPane.showMessageDialog(null, "La divisiï¿½n entre 0 no estï¿½ definida", "Error", JOptionPane.ERROR_MESSAGE);
+				JOptionPane.showMessageDialog(null, "La división entre 0 no está definida", "Error", JOptionPane.ERROR_MESSAGE);
 			}
 			break;
 		case Prod:
@@ -140,7 +140,7 @@ public class CalculatorScreen extends JFrame {
 		btnNewButton.setForeground(Color.WHITE);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				addDigit("7");
+				displayDigit("7");
 			}
 		});
 		btnNewButton.setFont(new Font("Lucida Sans Unicode", Font.BOLD, 18));
@@ -152,7 +152,7 @@ public class CalculatorScreen extends JFrame {
 		button.setForeground(Color.WHITE);
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				addDigit("8");
+				displayDigit("8");
 			}
 		});
 		button.setFont(new Font("Lucida Sans Unicode", Font.BOLD, 18));
@@ -164,7 +164,7 @@ public class CalculatorScreen extends JFrame {
 		button_1.setForeground(Color.WHITE);
 		button_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				addDigit("9");
+				displayDigit("9");
 			}
 		});
 		button_1.setFont(new Font("Lucida Sans Unicode", Font.BOLD, 18));
@@ -176,7 +176,7 @@ public class CalculatorScreen extends JFrame {
 		button_2.setForeground(Color.WHITE);
 		button_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				addDigit("4");
+				displayDigit("4");
 			}
 		});
 		button_2.setFont(new Font("Lucida Sans Unicode", Font.BOLD, 18));
@@ -188,7 +188,7 @@ public class CalculatorScreen extends JFrame {
 		button_3.setForeground(Color.WHITE);
 		button_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				addDigit("5");
+				displayDigit("5");
 			}
 		});
 		button_3.setFont(new Font("Lucida Sans Unicode", Font.BOLD, 18));
@@ -200,7 +200,7 @@ public class CalculatorScreen extends JFrame {
 		button_4.setForeground(Color.WHITE);
 		button_4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				addDigit("6");
+				displayDigit("6");
 			}
 		});
 		button_4.setFont(new Font("Lucida Sans Unicode", Font.BOLD, 18));
@@ -212,7 +212,7 @@ public class CalculatorScreen extends JFrame {
 		button_5.setForeground(Color.WHITE);
 		button_5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				addDigit("1");
+				displayDigit("1");
 			}
 		});
 		button_5.setFont(new Font("Lucida Sans Unicode", Font.BOLD, 18));
@@ -224,7 +224,7 @@ public class CalculatorScreen extends JFrame {
 		button_6.setForeground(Color.WHITE);
 		button_6.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				addDigit("2");
+				displayDigit("2");
 			}
 		});
 		button_6.setFont(new Font("Lucida Sans Unicode", Font.BOLD, 18));
@@ -236,7 +236,7 @@ public class CalculatorScreen extends JFrame {
 		button_7.setForeground(Color.WHITE);
 		button_7.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				addDigit("3");
+				displayDigit("3");
 			}
 		});
 		button_7.setFont(new Font("Lucida Sans Unicode", Font.BOLD, 18));
@@ -258,7 +258,14 @@ public class CalculatorScreen extends JFrame {
 		JButton button_9 = new JButton("-");
 		button_9.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				changeOperation(Operation.Sub);
+				if (operation == Operation.Sum) {					
+					changeOperation(Operation.Sub);
+				} else {
+					if (newNumber) {
+						displayDigit("-");
+						newNumber = false;
+					}
+				}
 			}
 		});
 		button_9.setFont(new Font("Lucida Sans Unicode", Font.BOLD, 18));
@@ -281,7 +288,7 @@ public class CalculatorScreen extends JFrame {
 		button_11.setForeground(Color.WHITE);
 		button_11.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				addDigit("0");
+				displayDigit("0");
 			}
 		});
 		button_11.setFont(new Font("Lucida Sans Unicode", Font.BOLD, 18));
@@ -339,7 +346,7 @@ public class CalculatorScreen extends JFrame {
 		JButton button_13 = new JButton(",");
 		button_13.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				addDigit(".");
+				displayDigit(".");
 			}
 		});
 		button_13.setForeground(Color.WHITE);
